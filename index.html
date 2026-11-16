@@ -4,155 +4,225 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La2che Enterprises</title>
-<meta name="description" content="La2che Enterprises LLC builds and operates ventures in software, consumer goods, art and hardware.">
+<meta name="description" content="La2che Enterprises LLC builds and operates five businesses: herbal goods gathered in Jamaica, software for Amazon sellers and UK contractors, original artwork, and a hardware device in development.">
+<meta name="theme-color" content="#0C2A20">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..400&display=swap" rel="stylesheet">
 <style>
-/* Layout idea: a left-aligned company register. Each venture is a ledger row:
-   category in a narrow left column, name and description on the right. */
-:root {
-  --paper: #F2F5F3;
-  --surface: #FFFFFF;
-  --ink: #14211E;
-  --muted: #55645F;
-  --line: #CCD6D1;
-  --accent: #0B6B53;
-  --accent-ink: #FFFFFF;
-  --chip: #E3ECE8;
-  --font-display: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif;
-  --font-body: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #0F1715;
-    --surface: #17211E;
-    --ink: #E9EFEC;
-    --muted: #9DACA6;
-    --line: #2C3A36;
-    --accent: #55C9A6;
-    --accent-ink: #0B1513;
-    --chip: #1F2C28;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #0F1715;
-  --surface: #17211E;
-  --ink: #E9EFEC;
-  --muted: #9DACA6;
-  --line: #2C3A36;
-  --accent: #55C9A6;
-  --accent-ink: #0B1513;
-  --chip: #1F2C28;
-  color-scheme: dark;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.6;
-}
-a { color: var(--accent); text-underline-offset: 3px; }
-a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-.wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+/* La2che Enterprises — the chromatic index.
+   One company, five ventures that look nothing like each other.
+   Each venture owns a colour; colour appears nowhere else. */
 
-header.site {
-  border-bottom: 1px solid var(--line);
-}
-header.site .wrap {
-  display: flex; flex-wrap: wrap; gap: 8px 24px;
-  align-items: baseline; justify-content: space-between;
-  padding-top: 18px; padding-bottom: 18px;
-}
-.mark {
-  font-family: var(--font-display); font-weight: 700; font-size: 1.15rem;
-  letter-spacing: -0.01em; color: var(--ink); text-decoration: none;
-}
-.mark span { color: var(--muted); font-weight: 500; }
-nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 0.95rem; }
-nav a { color: var(--ink); text-decoration: none; padding: 4px 0; }
-nav a:hover { color: var(--accent); }
+:root{
+  --base:#0C2A20;      /* deep bottle green, the page */
+  --ink:#071511;       /* deepest, for the quiet sections */
+  --raise:#113A2B;     /* a lifted plane */
+  --bone:#F2EFE3;      /* warm off-white, never pure white */
+  --dim:#9DB7A8;
+  --rule:#1E4836;
 
-.intro { padding: 56px 0 44px; }
-.intro h1 {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(2rem, 6.5vw, 3.4rem); line-height: 1.08;
-  letter-spacing: -0.02em; margin: 0 0 20px; max-width: 16ch;
-  text-wrap: balance;
-}
-.intro p { max-width: 60ch; margin: 0; color: var(--muted); font-size: 1.08rem; }
+  --aymon:#F2B33D;
+  --tender:#7FB2E5;
+  --stew:#E34B3C;
+  --art:#D877C6;
+  --sentinel:#4FDCBC;
 
-h2 {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--muted); margin: 0 0 4px;
-}
-section { padding: 28px 0 12px; }
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Newsreader",Georgia,"Times New Roman",serif;
 
-.venture {
-  display: grid; grid-template-columns: 150px 1fr; gap: 6px 28px;
-  padding: 28px 0; border-top: 1px solid var(--line);
+  --gutter:clamp(20px,5vw,64px);
+  --measure:62ch;
+  color-scheme:dark;
 }
-.venture:last-child { border-bottom: 1px solid var(--line); }
-.kind { font-size: 0.9rem; color: var(--muted); padding-top: 6px; }
-.venture h3 {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: 1.55rem; line-height: 1.2; letter-spacing: -0.01em;
-  margin: 0 0 4px; text-wrap: balance;
-}
-.tagline { font-weight: 500; margin: 0 0 10px; }
-.venture p { margin: 0 0 12px; max-width: 62ch; }
-.venture ul { margin: 0 0 12px; padding-left: 1.1em; max-width: 62ch; }
-.venture li { margin-bottom: 4px; }
-.status {
-  display: inline-block; font-size: 0.82rem; font-weight: 600;
-  background: var(--chip); color: var(--ink);
-  padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
-}
-.status.live { background: var(--accent); color: var(--accent-ink); }
-.sub { font-weight: 600; margin: 16px 0 6px; }
-.fine { font-size: 0.9rem; color: var(--muted); }
 
-.panel {
-  background: var(--surface); border: 1px solid var(--line);
-  border-radius: 6px; padding: 24px; margin-top: 16px;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--base);
+  color:var(--bone);
+  font-family:var(--body);
+  font-size:clamp(17px,1.05vw + 14px,20px);
+  font-weight:300;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
 }
-.panel p { margin: 0 0 10px; max-width: 62ch; }
-.panel p:last-child { margin-bottom: 0; }
-.policy h3 {
-  font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
-  margin: 22px 0 6px;
-}
-.policy ul { margin: 0 0 10px; padding-left: 1.1em; max-width: 62ch; }
-.policy li { margin-bottom: 6px; }
-.email { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; word-break: break-word; }
+.wrap{max-width:1180px;margin:0 auto;padding-inline:var(--gutter)}
+.narrow{max-width:var(--measure)}
 
-footer {
-  margin-top: 48px; border-top: 1px solid var(--line);
-  padding: 24px 0 40px; font-size: 0.88rem; color: var(--muted);
+a{color:inherit}
+a:focus-visible,summary:focus-visible{
+  outline:2px solid var(--bone);outline-offset:4px;border-radius:2px;
 }
-footer p { margin: 0 0 6px; max-width: 70ch; }
 
-@media (max-width: 600px) {
-  body { font-size: 16px; }
-  .intro { padding: 36px 0 28px; }
-  .venture { grid-template-columns: 1fr; padding: 22px 0; }
-  .kind { padding-top: 0; }
+/* ---------- masthead ---------- */
+.masthead{padding:26px 0 0}
+.masthead .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:baseline;justify-content:space-between}
+.wordmark{
+  font-family:var(--display);font-variation-settings:"wdth" 112,"wght" 800;
+  font-size:.92rem;letter-spacing:.02em;text-decoration:none;
+}
+.wordmark em{font-style:normal;color:var(--dim);font-variation-settings:"wdth" 100,"wght" 500}
+.masthead nav{display:flex;gap:22px;font-size:.88rem}
+.masthead nav a{color:var(--dim);text-decoration:none;padding:2px 0;border-bottom:1px solid transparent}
+.masthead nav a:hover{color:var(--bone);border-bottom-color:var(--rule)}
+
+/* ---------- opening ---------- */
+.opening{padding:clamp(48px,9vw,110px) 0 clamp(24px,4vw,44px)}
+.opening h1{
+  font-family:var(--display);
+  font-variation-settings:"wdth" 92,"wght" 760;
+  font-size:clamp(2rem,4.6vw,3.5rem);
+  line-height:1.04;letter-spacing:-.018em;
+  margin:0 0 26px;max-width:19ch;text-wrap:balance;
+}
+.opening p{margin:0;max-width:54ch;color:var(--dim);font-size:1.06rem}
+
+/* ---------- the index ---------- */
+.index{padding-bottom:clamp(40px,7vw,90px)}
+.index ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.index li{border-bottom:1px solid var(--rule)}
+
+.entry{
+  --hue:var(--bone);
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:baseline;
+  gap:4px 28px;
+  padding:clamp(18px,2.6vw,30px) 0;
+  text-decoration:none;
+  transition:padding-inline .35s cubic-bezier(.2,.7,.3,1),background-color .35s;
+}
+.entry .name{
+  grid-column:1;
+  font-family:var(--display);
+  font-variation-settings:"wdth" 118,"wght" 820;
+  font-size:clamp(2.1rem,7.6vw,5.4rem);
+  line-height:.94;letter-spacing:-.03em;
+  color:var(--hue);
+  transition:font-variation-settings .35s cubic-bezier(.2,.7,.3,1);
+}
+.entry .state{
+  grid-column:2;
+  font-size:.84rem;color:var(--dim);white-space:nowrap;
+  display:flex;align-items:center;gap:9px;
+}
+.entry .state::before{
+  content:"";width:8px;height:8px;border-radius:50%;
+  background:var(--hue);flex:none;
+}
+.entry .blurb{
+  grid-column:1 / -1;
+  margin:6px 0 0;color:var(--dim);max-width:46ch;font-size:.98rem;
+}
+.entry:hover,.entry:focus-visible{
+  background:color-mix(in srgb,var(--hue) 9%,transparent);
+  padding-inline:clamp(10px,1.6vw,22px);
+}
+.entry:hover .name,.entry:focus-visible .name{font-variation-settings:"wdth" 125,"wght" 880}
+.entry:hover .blurb,.entry:focus-visible .blurb{color:var(--bone)}
+
+#e-aymon{--hue:var(--aymon)}
+#e-tenderloop{--hue:var(--tender)}
+#e-stew{--hue:var(--stew)}
+#e-art{--hue:var(--art)}
+#e-sentinel{--hue:var(--sentinel)}
+
+/* one orchestrated arrival, and only this */
+@media (prefers-reduced-motion:no-preference){
+  .index li{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards}
+  .index li:nth-child(1){animation-delay:.10s}
+  .index li:nth-child(2){animation-delay:.17s}
+  .index li:nth-child(3){animation-delay:.24s}
+  .index li:nth-child(4){animation-delay:.31s}
+  .index li:nth-child(5){animation-delay:.38s}
+}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ---------- venture detail ---------- */
+.ventures{background:var(--ink);padding:clamp(40px,6vw,80px) 0 clamp(20px,3vw,40px)}
+.venture{--hue:var(--bone);padding:clamp(34px,5vw,62px) 0;border-top:1px solid var(--rule)}
+.venture:first-of-type{border-top:0}
+.venture h2{
+  font-family:var(--display);
+  font-variation-settings:"wdth" 110,"wght" 800;
+  font-size:clamp(1.7rem,3.4vw,2.6rem);
+  line-height:1.06;letter-spacing:-.02em;
+  color:var(--hue);margin:0 0 6px;
+}
+.venture .lede{margin:0 0 20px;font-size:1.12rem;max-width:48ch}
+.venture .state{display:flex;align-items:center;gap:9px;font-size:.86rem;color:var(--dim);margin:0 0 22px}
+.venture .state::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--hue);flex:none}
+.venture p{margin:0 0 15px;max-width:var(--measure)}
+.venture .sub{font-family:var(--display);font-variation-settings:"wdth" 100,"wght" 650;font-size:.95rem;margin:26px 0 8px;color:var(--bone)}
+.venture ul{margin:0 0 15px;padding-left:1.15em;max-width:var(--measure)}
+.venture li{margin-bottom:7px}
+.venture li::marker{color:var(--hue)}
+.venture .note{color:var(--dim);font-size:.95rem;font-style:italic}
+.venture .out{
+  display:inline-block;margin-top:6px;color:var(--hue);
+  text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;
+  font-family:var(--display);font-variation-settings:"wdth" 100,"wght" 600;font-size:.95rem;
+}
+.venture .out:hover{background:color-mix(in srgb,var(--hue) 16%,transparent)}
+
+#aymon{--hue:var(--aymon)}
+#tenderloop{--hue:var(--tender)}
+#rastaman-stew{--hue:var(--stew)}
+#la2che-art{--hue:var(--art)}
+#sentinel{--hue:var(--sentinel)}
+
+/* ---------- contact ---------- */
+.contact{padding:clamp(56px,8vw,104px) 0}
+.contact h2{
+  font-family:var(--display);font-variation-settings:"wdth" 96,"wght" 780;
+  font-size:clamp(1.8rem,4vw,3rem);line-height:1.06;letter-spacing:-.02em;
+  margin:0 0 14px;max-width:18ch;text-wrap:balance;
+}
+.contact p{margin:0 0 30px;color:var(--dim);max-width:48ch}
+.lines{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.lines a{
+  font-family:var(--display);font-variation-settings:"wdth" 104,"wght" 720;
+  font-size:clamp(1.25rem,3.4vw,2rem);letter-spacing:-.015em;
+  text-decoration:none;border-bottom:2px solid var(--rule);padding-bottom:3px;
+  transition:border-color .25s;word-break:break-word;
+}
+.lines a:hover{border-bottom-color:var(--bone)}
+
+/* ---------- privacy, deliberately quiet ---------- */
+.privacy{background:var(--ink);padding:clamp(40px,6vw,76px) 0;color:var(--dim)}
+.privacy h2{
+  font-family:var(--display);font-variation-settings:"wdth" 100,"wght" 700;
+  font-size:1.1rem;margin:0 0 4px;color:var(--bone);letter-spacing:-.01em;
+}
+.privacy .eff{margin:0 0 26px;font-size:.88rem}
+.privacy h3{
+  font-family:var(--display);font-variation-settings:"wdth" 100,"wght" 650;
+  font-size:.98rem;color:var(--bone);margin:24px 0 6px;
+}
+.privacy p,.privacy ul{font-size:.95rem;max-width:var(--measure);margin:0 0 11px}
+.privacy ul{padding-left:1.15em}
+.privacy li{margin-bottom:6px}
+.privacy strong{color:var(--bone);font-weight:600}
+.privacy a{color:var(--bone)}
+
+/* ---------- footer ---------- */
+footer{padding:30px 0 56px;font-size:.84rem;color:var(--dim);border-top:1px solid var(--rule)}
+footer p{margin:0 0 7px;max-width:76ch}
+
+@media (max-width:620px){
+  .entry{grid-template-columns:1fr}
+  .entry .state{grid-column:1;margin-top:8px}
+  .masthead nav{gap:16px}
 }
 </style>
 </head>
 <body>
 
-<header class="site">
+<header class="masthead">
   <div class="wrap">
-    <a class="mark" href="#top">La2che Enterprises <span>LLC</span></a>
+    <a class="wordmark" href="#top">La2che Enterprises <em>LLC</em></a>
     <nav aria-label="Sections">
       <a href="#ventures">Ventures</a>
       <a href="#privacy">Privacy</a>
@@ -161,23 +231,65 @@ footer p { margin: 0 0 6px; max-width: 70ch; }
   </div>
 </header>
 
-<main class="wrap" id="top">
+<main id="top">
 
-  <div class="intro">
-    <h1>One company, several ventures.</h1>
-    <p>La2che Enterprises LLC builds and operates businesses in software, consumer goods, art and hardware. Each venture below runs under the La2che name.</p>
-  </div>
+  <section class="opening">
+    <div class="wrap">
+      <h1>From a hillside in Jamaica to an Amazon seller's dashboard.</h1>
+      <p>La2che Enterprises LLC builds and runs five businesses. They have almost nothing in common, which is the point.</p>
+    </div>
+  </section>
 
-  <section id="ventures">
-    <h2>Ventures</h2>
+  <section class="index" aria-label="The ventures">
+    <div class="wrap">
+      <ol>
+        <li>
+          <a class="entry" id="e-aymon" href="#aymon">
+            <span class="name">AYMON</span>
+            <span class="state">Private testing</span>
+            <span class="blurb">Software that helps a seller run their store on Amazon from one place.</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" id="e-tenderloop" href="#tenderloop">
+            <span class="name">Tenderloop</span>
+            <span class="state">In development</span>
+            <span class="blurb">Public sector tender alerts for small contractors in the United Kingdom.</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" id="e-stew" href="#rastaman-stew">
+            <span class="name">RastaMan Stew</span>
+            <span class="state">Selling now</span>
+            <span class="blurb">Wildcrafted Jamaican herbal teas and sea moss, gathered by hand.</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" id="e-art" href="#la2che-art">
+            <span class="name">La2che Art</span>
+            <span class="state">Selling now</span>
+            <span class="blurb">Original artwork on prints, paintings and apparel.</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" id="e-sentinel" href="#sentinel">
+            <span class="name">Project Sentinel</span>
+            <span class="state">In development</span>
+            <span class="blurb">A small wearable that helps you avoid leaving your phone behind.</span>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </section>
 
-    <article class="venture" id="aymon">
-      <div class="kind">Software</div>
-      <div>
-        <h3>AYMON</h3>
-        <p class="tagline">Seller management for Amazon marketplaces.</p>
-        <span class="status">Private testing. Not yet open to new sellers.</span>
-        <p>AYMON is a web application that helps a seller run a store on Amazon from one place. The seller asks questions in plain language and AYMON answers from the seller's own account data.</p>
+  <div class="ventures" id="ventures">
+    <div class="wrap">
+
+      <article class="venture" id="aymon">
+        <h2>AYMON</h2>
+        <p class="lede">Seller management for Amazon marketplaces.</p>
+        <p class="state">Private testing. Not yet open to new sellers.</p>
+        <p>AYMON is a web application that helps a seller run a store on Amazon from one place. The seller asks questions in plain language, and AYMON answers from the seller's own account data.</p>
         <p class="sub">What AYMON does</p>
         <ul>
           <li>Watches account health and sends an alert when Amazon reports a problem.</li>
@@ -192,59 +304,49 @@ footer p { margin: 0 0 6px; max-width: 70ch; }
           <li>A seller authorizes the connection and can withdraw that authorization at any time.</li>
           <li>AYMON proposes a change, the seller confirms it, and only then is it carried out.</li>
         </ul>
-        <p>To ask about AYMON, email <a href="mailto:support@la2che.com">support@la2che.com</a>.</p>
-      </div>
-    </article>
+        <a class="out" href="mailto:support@la2che.com">Ask about AYMON</a>
+      </article>
 
-    <article class="venture" id="tenderloop">
-      <div class="kind">Software</div>
-      <div>
-        <h3>Tenderloop</h3>
-        <p class="tagline">Public sector tender alerts for small contractors in the United Kingdom.</p>
-        <span class="status">In development</span>
-        <p>Tenderloop is a subscription service that shows a contractor only the public sector contracts they can realistically bid for, matched to their trade, their region and the size of work they take on, with a plain-English summary of what each notice asks for.</p>
+      <article class="venture" id="tenderloop">
+        <h2>Tenderloop</h2>
+        <p class="lede">Public sector tender alerts for small contractors in the United Kingdom.</p>
+        <p class="state">In development</p>
+        <p>Tenderloop shows a contractor only the public sector contracts they can realistically bid for, matched to their trade, their region and the size of work they take on, with a plain-English summary of what each notice asks for.</p>
         <p>It reads the United Kingdom's open public procurement feeds, Contracts Finder and Find a Tender. The first release covers electrical and building services work in North West England.</p>
-        <p class="fine">Tenderloop is not yet open to subscribers.</p>
-      </div>
-    </article>
+        <p class="note">Tenderloop is not yet open to subscribers.</p>
+      </article>
 
-    <article class="venture" id="rastaman-stew">
-      <div class="kind">Consumer goods</div>
-      <div>
-        <h3>RastaMan Stew</h3>
-        <p class="tagline">Wildcrafted Jamaican herbal teas and sea moss.</p>
-        <span class="status live">Selling now</span>
-        <p>RastaMan Stew sources traditional Jamaican herbs and sea moss and sells them as loose-leaf teas, tea bags and dried goods. Products are sold on Amazon and at the brand's own store.</p>
-        <p><a href="https://rastamanbrew.com">rastamanbrew.com</a></p>
-      </div>
-    </article>
+      <article class="venture" id="rastaman-stew">
+        <h2>RastaMan Stew</h2>
+        <p class="lede">Wildcrafted Jamaican herbal teas and sea moss.</p>
+        <p class="state">Selling now</p>
+        <p>RastaMan Stew sources traditional Jamaican herbs and sea moss and sells them as loose-leaf teas, tea bags and dried goods. The herbs are gathered by hand on the island. Products are sold on Amazon and at the brand's own store.</p>
+        <a class="out" href="https://rastamanbrew.com">rastamanbrew.com</a>
+      </article>
 
-    <article class="venture" id="la2che-art">
-      <div class="kind">Art</div>
-      <div>
-        <h3>La2che Art</h3>
-        <p class="tagline">Original artwork on prints, paintings and apparel.</p>
-        <span class="status live">Selling now</span>
+      <article class="venture" id="la2che-art">
+        <h2>La2che Art</h2>
+        <p class="lede">Original artwork on prints, paintings and apparel.</p>
+        <p class="state">Selling now</p>
         <p>La2che Art sells original artwork as prints and paintings, and on t-shirts made to order.</p>
-      </div>
-    </article>
+        <a class="out" href="https://la2cheart.com">la2cheart.com</a>
+      </article>
 
-    <article class="venture" id="sentinel">
-      <div class="kind">Hardware</div>
-      <div>
-        <h3>Project Sentinel</h3>
-        <p class="tagline">A small wearable that helps you avoid leaving your phone behind.</p>
-        <span class="status">In development</span>
+      <article class="venture" id="sentinel">
+        <h2>Project Sentinel</h2>
+        <p class="lede">A small wearable that helps you avoid leaving your phone behind.</p>
+        <p class="state">In development</p>
         <p>Project Sentinel is a compact Bluetooth device with a companion phone app. It is in the industrial-design and engineering-documentation phase, and we are preparing to engage contract manufacturers.</p>
-        <p class="fine">Project Sentinel is a working name. No product is available for sale or pre-order.</p>
-      </div>
-    </article>
-  </section>
+        <p class="note">Project Sentinel is a working name. No product is available for sale or pre-order.</p>
+      </article>
 
-  <section id="privacy">
-    <h2>Privacy policy</h2>
-    <div class="panel policy">
-      <p class="fine">Effective November 9, 2026. This policy covers this website and the AYMON application, both operated by La2che Enterprises LLC.</p>
+    </div>
+  </div>
+
+  <section class="privacy" id="privacy">
+    <div class="wrap">
+      <h2>Privacy policy</h2>
+      <p class="eff">Effective November 9, 2026. This policy covers this website and the AYMON application, both operated by La2che Enterprises LLC.</p>
 
       <h3>This website</h3>
       <p>This website has no forms, accounts or advertising trackers. Our hosting provider may record standard technical details of a visit, such as IP address and browser type, to keep the site running and secure. If you email us, we use your address and message only to reply.</p>
@@ -285,12 +387,14 @@ footer p { margin: 0 0 6px; max-width: 70ch; }
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="panel">
-      <p>For any venture, reach us by email or phone.</p>
-      <p class="email"><a href="mailto:support@la2che.com">support@la2che.com</a></p>
-      <p class="email"><a href="tel:+13056978928">(305) 697-8928</a></p>
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Whichever venture brought you here, this reaches us.</h2>
+      <p>One inbox, one number, for all five.</p>
+      <div class="lines">
+        <a href="mailto:support@la2che.com">support@la2che.com</a>
+        <a href="tel:+13056978928">(305) 697-8928</a>
+      </div>
     </div>
   </section>
 
