@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La2che Enterprises</title>
+<meta name="description" content="La2che Enterprises LLC builds and operates ventures in software, consumer goods, art and hardware.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a left-aligned company register. Each venture is a ledger row:
+   category in a narrow left column, name and description on the right. */
+:root {
+  --paper: #F2F5F3;
+  --surface: #FFFFFF;
+  --ink: #14211E;
+  --muted: #55645F;
+  --line: #CCD6D1;
+  --accent: #0B6B53;
+  --accent-ink: #FFFFFF;
+  --chip: #E3ECE8;
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1715;
+    --surface: #17211E;
+    --ink: #E9EFEC;
+    --muted: #9DACA6;
+    --line: #2C3A36;
+    --accent: #55C9A6;
+    --accent-ink: #0B1513;
+    --chip: #1F2C28;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F1715;
+  --surface: #17211E;
+  --ink: #E9EFEC;
+  --muted: #9DACA6;
+  --line: #2C3A36;
+  --accent: #55C9A6;
+  --accent-ink: #0B1513;
+  --chip: #1F2C28;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+header.site {
+  border-bottom: 1px solid var(--line);
+}
+header.site .wrap {
+  display: flex; flex-wrap: wrap; gap: 8px 24px;
+  align-items: baseline; justify-content: space-between;
+  padding-top: 18px; padding-bottom: 18px;
+}
+.mark {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.15rem;
+  letter-spacing: -0.01em; color: var(--ink); text-decoration: none;
+}
+.mark span { color: var(--muted); font-weight: 500; }
+nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 0.95rem; }
+nav a { color: var(--ink); text-decoration: none; padding: 4px 0; }
+nav a:hover { color: var(--accent); }
+
+.intro { padding: 56px 0 44px; }
+.intro h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2rem, 6.5vw, 3.4rem); line-height: 1.08;
+  letter-spacing: -0.02em; margin: 0 0 20px; max-width: 16ch;
+  text-wrap: balance;
+}
+.intro p { max-width: 60ch; margin: 0; color: var(--muted); font-size: 1.08rem; }
+
+h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 4px;
+}
+section { padding: 28px 0 12px; }
+
+.venture {
+  display: grid; grid-template-columns: 150px 1fr; gap: 6px 28px;
+  padding: 28px 0; border-top: 1px solid var(--line);
+}
+.venture:last-child { border-bottom: 1px solid var(--line); }
+.kind { font-size: 0.9rem; color: var(--muted); padding-top: 6px; }
+.venture h3 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.55rem; line-height: 1.2; letter-spacing: -0.01em;
+  margin: 0 0 4px; text-wrap: balance;
+}
+.tagline { font-weight: 500; margin: 0 0 10px; }
+.venture p { margin: 0 0 12px; max-width: 62ch; }
+.venture ul { margin: 0 0 12px; padding-left: 1.1em; max-width: 62ch; }
+.venture li { margin-bottom: 4px; }
+.status {
+  display: inline-block; font-size: 0.82rem; font-weight: 600;
+  background: var(--chip); color: var(--ink);
+  padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+}
+.status.live { background: var(--accent); color: var(--accent-ink); }
+.sub { font-weight: 600; margin: 16px 0 6px; }
+.fine { font-size: 0.9rem; color: var(--muted); }
+
+.panel {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 6px; padding: 24px; margin-top: 16px;
+}
+.panel p { margin: 0 0 10px; max-width: 62ch; }
+.panel p:last-child { margin-bottom: 0; }
+.policy h3 {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
+  margin: 22px 0 6px;
+}
+.policy ul { margin: 0 0 10px; padding-left: 1.1em; max-width: 62ch; }
+.policy li { margin-bottom: 6px; }
+.email { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; word-break: break-word; }
+
+footer {
+  margin-top: 48px; border-top: 1px solid var(--line);
+  padding: 24px 0 40px; font-size: 0.88rem; color: var(--muted);
+}
+footer p { margin: 0 0 6px; max-width: 70ch; }
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .intro { padding: 36px 0 28px; }
+  .venture { grid-template-columns: 1fr; padding: 22px 0; }
+  .kind { padding-top: 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="mark" href="#top">La2che Enterprises <span>LLC</span></a>
+    <nav aria-label="Sections">
+      <a href="#ventures">Ventures</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="intro">
+    <h1>One company, several ventures.</h1>
+    <p>La2che Enterprises LLC builds and operates businesses in software, consumer goods, art and hardware. Each venture below runs under the La2che name.</p>
+  </div>
+
+  <section id="ventures">
+    <h2>Ventures</h2>
+
+    <article class="venture" id="aymon">
+      <div class="kind">Software</div>
+      <div>
+        <h3>AYMON</h3>
+        <p class="tagline">Seller management for Amazon marketplaces.</p>
+        <span class="status">Private testing. Not yet open to new sellers.</span>
+        <p>AYMON is a web application that helps a seller run a store on Amazon from one place. The seller asks questions in plain language and AYMON answers from the seller's own account data.</p>
+        <p class="sub">What AYMON does</p>
+        <ul>
+          <li>Watches account health and sends an alert when Amazon reports a problem.</li>
+          <li>Tracks inventory and warns when a product is running low or out of stock.</li>
+          <li>Reviews advertising results and recommends changes to campaigns and keywords.</li>
+          <li>Checks listing text against marketplace content rules before it is published.</li>
+          <li>Drafts replies to routine customer questions for the seller to review.</li>
+        </ul>
+        <p class="sub">How it connects</p>
+        <ul>
+          <li>AYMON connects through Amazon's official Selling Partner API and Amazon Ads API.</li>
+          <li>A seller authorizes the connection and can withdraw that authorization at any time.</li>
+          <li>AYMON proposes a change, the seller confirms it, and only then is it carried out.</li>
+        </ul>
+        <p>To ask about AYMON, email <a href="mailto:support@la2che.com">support@la2che.com</a>.</p>
+      </div>
+    </article>
+
+    <article class="venture" id="tenderloop">
+      <div class="kind">Software</div>
+      <div>
+        <h3>Tenderloop</h3>
+        <p class="tagline">Public sector tender alerts for small contractors in the United Kingdom.</p>
+        <span class="status">In development</span>
+        <p>Tenderloop is a subscription service that shows a contractor only the public sector contracts they can realistically bid for, matched to their trade, their region and the size of work they take on, with a plain-English summary of what each notice asks for.</p>
+        <p>It reads the United Kingdom's open public procurement feeds, Contracts Finder and Find a Tender. The first release covers electrical and building services work in North West England.</p>
+        <p class="fine">Tenderloop is not yet open to subscribers.</p>
+      </div>
+    </article>
+
+    <article class="venture" id="rastaman-stew">
+      <div class="kind">Consumer goods</div>
+      <div>
+        <h3>RastaMan Stew</h3>
+        <p class="tagline">Wildcrafted Jamaican herbal teas and sea moss.</p>
+        <span class="status live">Selling now</span>
+        <p>RastaMan Stew sources traditional Jamaican herbs and sea moss and sells them as loose-leaf teas, tea bags and dried goods. Products are sold on Amazon and at the brand's own store.</p>
+        <p><a href="https://rastamanbrew.com">rastamanbrew.com</a></p>
+      </div>
+    </article>
+
+    <article class="venture" id="la2che-art">
+      <div class="kind">Art</div>
+      <div>
+        <h3>La2che Art</h3>
+        <p class="tagline">Original artwork on prints, paintings and apparel.</p>
+        <span class="status live">Selling now</span>
+        <p>La2che Art sells original artwork as prints and paintings, and on t-shirts made to order.</p>
+      </div>
+    </article>
+
+    <article class="venture" id="sentinel">
+      <div class="kind">Hardware</div>
+      <div>
+        <h3>Project Sentinel</h3>
+        <p class="tagline">A small wearable that helps you avoid leaving your phone behind.</p>
+        <span class="status">In development</span>
+        <p>Project Sentinel is a compact Bluetooth device with a companion phone app. It is in the industrial-design and engineering-documentation phase, and we are preparing to engage contract manufacturers.</p>
+        <p class="fine">Project Sentinel is a working name. No product is available for sale or pre-order.</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="privacy">
+    <h2>Privacy policy</h2>
+    <div class="panel policy">
+      <p class="fine">Effective November 9, 2026. This policy covers this website and the AYMON application, both operated by La2che Enterprises LLC.</p>
+
+      <h3>This website</h3>
+      <p>This website has no forms, accounts or advertising trackers. Our hosting provider may record standard technical details of a visit, such as IP address and browser type, to keep the site running and secure. If you email us, we use your address and message only to reply.</p>
+
+      <h3>What AYMON collects</h3>
+      <ul>
+        <li><strong>Seller account details.</strong> The name, email address and sign-in details of the seller who uses AYMON.</li>
+        <li><strong>Amazon selling account data.</strong> With the seller's authorization, AYMON reads data from that seller's own account through Amazon's Selling Partner API and Amazon Ads API. This includes listings, inventory, orders, sales and fees, account health, and advertising campaigns and results.</li>
+        <li><strong>Customer messages.</strong> If a seller routes customer messages to AYMON, those messages are stored so AYMON can sort them and draft replies. They can include a customer's name and what the customer wrote.</li>
+        <li><strong>Activity records.</strong> A log of what AYMON recommended, what the seller approved, and what was changed.</li>
+      </ul>
+
+      <h3>How the information is used</h3>
+      <ul>
+        <li>To provide AYMON to the seller: answers, alerts, reports, recommendations and drafts.</li>
+        <li>To carry out a change on the seller's account after the seller approves it.</li>
+        <li>To keep the service secure and to fix problems.</li>
+      </ul>
+      <p>We do not sell personal information or Amazon account data. We do not use customer information for marketing. We do not share one seller's data with another seller.</p>
+
+      <h3>Service providers</h3>
+      <p>AYMON relies on outside companies for hosting and data storage, AI processing and email delivery. They receive only the information needed to perform that work for us. We may also disclose information when the law requires it.</p>
+
+      <h3>Security</h3>
+      <p>Connections to AYMON are encrypted in transit. Amazon access credentials are stored in encrypted form. Access to AYMON requires sign-in and is limited to the seller and to the people who operate the service.</p>
+
+      <h3>Keeping and deleting information</h3>
+      <p>We keep information only as long as it is needed to provide the service or to meet legal obligations. When a seller stops using AYMON, the seller can ask us to delete their data by emailing us.</p>
+
+      <h3>Your choices</h3>
+      <p>A seller can withdraw AYMON's access at any time in Amazon Seller Central, under Apps and Services, Manage Your Apps. Anyone can ask what information we hold about them, or ask us to correct or delete it, by emailing us.</p>
+
+      <h3>Children</h3>
+      <p>This website and AYMON are intended for businesses and are not directed at children.</p>
+
+      <h3>Changes and contact</h3>
+      <p>If this policy changes, we will post the new version here with a new effective date. Questions go to <a href="mailto:support@la2che.com">support@la2che.com</a>.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="panel">
+      <p>For any venture, reach us by email or phone.</p>
+      <p class="email"><a href="mailto:support@la2che.com">support@la2che.com</a></p>
+      <p class="email"><a href="tel:+13056978928">(305) 697-8928</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 La2che Enterprises LLC. All rights reserved.</p>
+    <p>Amazon is a trademark of Amazon.com, Inc. or its affiliates. AYMON is an independent product and is not affiliated with, endorsed by, or sponsored by Amazon.com, Inc.</p>
+  </div>
+</footer>
+
+</body>
+</html>
