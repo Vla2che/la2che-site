@@ -6,6 +6,7 @@
 <title>La2che Enterprises</title>
 <meta name="description" content="La2che Enterprises LLC builds and operates five businesses: herbal goods gathered in Jamaica, software for Amazon sellers and UK contractors, original artwork, and a hardware device in development.">
 <meta name="theme-color" content="#0C2A20">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 33 33'%3E%3Crect width='33' height='33' rx='6' fill='%230C2A20'/%3E%3Cg%3E%3Crect x='4' y='4' width='7' height='7' rx='1' fill='%23F2B33D'/%3E%3Crect x='4' y='13' width='7' height='7' rx='1' fill='%237FB2E5'/%3E%3Crect x='4' y='22' width='7' height='7' rx='1' fill='%23E34B3C'/%3E%3Crect x='13' y='22' width='7' height='7' rx='1' fill='%23D877C6'/%3E%3Crect x='22' y='22' width='7' height='7' rx='1' fill='%234FDCBC'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..400&display=swap" rel="stylesheet">
@@ -62,7 +63,9 @@ a:focus-visible,summary:focus-visible{
 .wordmark{
   font-family:var(--display);font-variation-settings:"wdth" 112,"wght" 800;
   font-size:.92rem;letter-spacing:.02em;text-decoration:none;
+  display:inline-flex;align-items:center;gap:11px;
 }
+.wordmark .mark{width:21px;height:21px;flex:none;display:block}
 .wordmark em{font-style:normal;color:var(--dim);font-variation-settings:"wdth" 100,"wght" 500}
 .masthead nav{display:flex;gap:22px;font-size:.88rem}
 .masthead nav a{color:var(--dim);text-decoration:none;padding:2px 0;border-bottom:1px solid transparent}
@@ -222,7 +225,16 @@ footer p{margin:0 0 7px;max-width:76ch}
 
 <header class="masthead">
   <div class="wrap">
-    <a class="wordmark" href="#top">La2che Enterprises <em>LLC</em></a>
+    <a class="wordmark" href="#top">
+      <svg class="mark" viewBox="0 0 29 29" aria-hidden="true" focusable="false">
+        <rect x="0"  y="0"  width="9" height="9" rx="1.2" fill="#F2B33D"/>
+        <rect x="0"  y="10" width="9" height="9" rx="1.2" fill="#7FB2E5"/>
+        <rect x="0"  y="20" width="9" height="9" rx="1.2" fill="#E34B3C"/>
+        <rect x="10" y="20" width="9" height="9" rx="1.2" fill="#D877C6"/>
+        <rect x="20" y="20" width="9" height="9" rx="1.2" fill="#4FDCBC"/>
+      </svg>
+      <span>La2che Enterprises <em>LLC</em></span>
+    </a>
     <nav aria-label="Sections">
       <a href="#ventures">Ventures</a>
       <a href="#privacy">Privacy</a>
@@ -235,8 +247,8 @@ footer p{margin:0 0 7px;max-width:76ch}
 
   <section class="opening">
     <div class="wrap">
-      <h1>From a hillside in Jamaica to an Amazon seller's dashboard.</h1>
-      <p>La2che Enterprises LLC builds and runs five businesses. They have almost nothing in common, which is the point.</p>
+      <h1>Investing in and building enterprising ideas.</h1>
+      <p>La2che Enterprises LLC owns and operates five businesses, across software, consumer goods, art and hardware. We fund them ourselves and run them ourselves.</p>
     </div>
   </section>
 
